@@ -18,6 +18,16 @@ a:hover {
     cursor: pointer;
 }
 
+a:focus {
+    text-decoration: underline !important;
+    color: inherit !important;
+}
+
+blockquote p {
+    font-size: 18px;
+    font-style: italic;
+}
+
 #page-loading-blocs-notifaction {
     position: fixed;
     top: 0;
@@ -45,6 +55,7 @@ a:hover {
 }
 
 .bloc-lg {
+    position: relative;
     padding: 100px 50px;
 }
 
@@ -88,6 +99,7 @@ a:hover {
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 0;
 }
 
 .texture-paper::before {
@@ -103,7 +115,8 @@ a:hover {
     color: rgba(255, 255, 255, .7);
 }
 
-.d-bloc button:hover {
+.d-bloc button:hover,
+.d-bloc button:focus {
     color: rgba(255, 255, 255, .9);
 }
 
@@ -119,7 +132,6 @@ a:hover {
     border-color: rgba(255, 255, 255, .2);
 }
 
-.d-bloc .a-btn,
 .d-bloc .navbar a,
 .d-bloc .navbar-brand,
 .d-bloc a .icon-sm,
@@ -136,20 +148,21 @@ a:hover {
     color: rgba(255, 255, 255, .6);
 }
 
-.d-bloc .a-btn:hover,
-.d-bloc .navbar a:hover,
-.d-bloc .navbar-brand:hover,
 .d-bloc a:hover .icon-sm,
+.d-bloc a:focus.icon-sm,
+.d-bloc a:active.icon-sm,
 .d-bloc a:hover .icon-md,
+.d-bloc a:focus .icon-md,
+.d-bloc a:active .icon-md,
 .d-bloc a:hover .icon-lg,
+.d-bloc a:focus .icon-lg,
+.d-bloc a:active .icon-lg,
 .d-bloc a:hover .icon-xl,
-.d-bloc h1 a:hover,
-.d-bloc h2 a:hover,
-.d-bloc h3 a:hover,
-.d-bloc h4 a:hover,
-.d-bloc h5 a:hover,
-.d-bloc h6 a:hover,
-.d-bloc p a:hover {
+.d-bloc a:focus .icon-xl,
+.d-bloc a:active .icon-xl,
+.d-bloc p a:hover,
+.d-bloc p a:focus,
+.d-bloc p a:active {
     color: rgba(255, 255, 255, 1);
 }
 
@@ -242,14 +255,8 @@ a:hover {
 .l-bloc a:hover .icon-md,
 .l-bloc a:hover .icon-lg,
 .l-bloc a:hover .icon-xl,
-.l-bloc h1 a:hover,
-.l-bloc h2 a:hover,
-.l-bloc h3 a:hover,
-.l-bloc h4 a:hover,
-.l-bloc h5 a:hover,
-.l-bloc h6 a:hover,
 .l-bloc p a:hover {
-    color: rgba(0, 0, 0, 1);
+    color: #CB4F11 !important;
 }
 
 .l-bloc .navbar-toggle .icon-bar {
@@ -283,8 +290,8 @@ a:hover {
     padding-left: 0;
 }
 
-#bloc-1-hero h1 {
-    font-size: 32px;
+h1.hero-bloc-text {
+    font-size:32px !important;
 }
 
 .navbar {
@@ -297,10 +304,13 @@ a:hover {
     padding: 3px 15px;
     font-size: 25px;
     font-weight: normal;
-    font-weight: 600;
     line-height: 44px;
 }
 
+.navbar-brand span {
+    font-family: "Charm", serif;
+    color: #000 !important;
+}
 .navbar-brand img {
     max-height: 200px;
     margin: 0 5px 0 0;
@@ -508,6 +518,7 @@ button {
 .form-control {
     border-color: rgba(0, 0, 0, .1);
     box-shadow: none;
+    width: auto;
 }
 
 .scrollToTop {
@@ -523,6 +534,11 @@ button {
 
 .scrollToTop span {
     margin-top: 6px;
+    color: #fff;
+}
+
+.scrollToTop:hover span {
+    color: #B65E41;
 }
 
 .showScrollTop {
@@ -534,9 +550,12 @@ a[data-lightbox] {
     position: relative;
     display: block;
     text-align: center;
+    transition: all .2s linear;
 }
 
-a[data-lightbox]:hover::before {
+a[data-lightbox]:hover::before,
+a[data-lightbox]:focus::before,
+a[data-lightbox]:active::before {
     content: "+";
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
     font-size: 32px;
@@ -554,10 +573,17 @@ a[data-lightbox]:hover::before {
     -webkit-transform: translateY(-50%);
 }
 
-a[data-lightbox]:hover img {
+a[data-lightbox]:hover img,
+a[data-lightbox]:focus img,
+a[data-lightbox]:active img  {
     opacity: 0.6;
     -webkit-animation-fill-mode: none;
     animation-fill-mode: none;
+}
+
+
+a[data-lightbox] .img-responsive {
+    width: 100%;
 }
 
 #lightbox-modal {
@@ -648,14 +674,15 @@ h6,
 p,
 label,
 .btn,
-a {
-    font-family: "helvetica";
+a,
+a:visited {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial;
     font-weight: 400;
-    color: #575757!important;
+    color: #575757;
 }
 
-.container {
-    max-width: 1000px;
+.container {        
+    width: auto;
 }
 
 .hero-bloc-text {
@@ -677,7 +704,7 @@ a {
 }
 
 p {
-    font-size: 11px;
+    font-size: 16px;
 }
 
 .tight-width-whitespace {
@@ -687,7 +714,7 @@ p {
 
 .h1 {
     font-size: 20px;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }
 
 .cta-hero {
@@ -702,8 +729,16 @@ p {
 .social {
     max-width: 400px;
     margin: auto auto auto auto;
+    text-align: center;
 }
 
+.social div {
+    display: inline-block;
+}
+
+.social div a {
+    margin: auto 20px;
+}
 h2 {
     font-size: 22px;
     line-height: 1.4em;
@@ -753,13 +788,17 @@ h4 {
 }
 
 .black-background {
-    background-color: rgba(165, 147, 99, 0.7);
+    background-color: rgba(109, 97, 65, 0.7);
     padding: 40px 40px 40px 40px;
+}
+
+.text-center {
+    text-align: center !important;
 }
 
 .bold-link {
     font-weight: 900;
-    text-decoration: underline!important;
+    text-decoration: underline !important;
 }
 
 .bgc-white {
@@ -771,20 +810,26 @@ h4 {
 }
 
 .bgc-atomic-tangerine {
-    background-color: #F3976C;
+    background-color: #B65E41;
 }
 
 .tc-white {
-    color: #F3976C!important;
+    color: #FFF !important;
+}
+
+.tc-orange {
+    color: #FFEF15!important;
 }
 
 .btn-atomic-tangerine {
-    background: #F3976C;
+    background: #B65E41;
     color: #FFFFFF!important;
 }
 
-.btn-atomic-tangerine:hover {
-    background: #c27956!important;
+.btn-atomic-tangerine:hover,
+.btn-atomic-tangerine:focus,
+.btn-atomic-tangerine:active {
+    background: #CB4F11 !important;
     color: #FFFFFF!important;
 }
 
@@ -792,16 +837,20 @@ h4 {
     color: #FFFFFF!important;
 }
 
-.ltc-white:hover {
-    color: #cccccc!important;
+.ltc-white:hover,
+.ltc-white:focus,
+.ltc-white:active {
+    color: #bb9138 !important;
 }
 
 .ltc-atomic-tangerine {
-    color: #F3976C!important;
+    color: #B65E41!important;
 }
 
-.ltc-atomic-tangerine:hover {
-    color: #c27956!important;
+.ltc-atomic-tangerine:hover,
+.ltc-atomic-tangerine:focus,
+.ltc-atomic-tangerine:active {
+    color: #CB4F11!important;
 }
 
 .icon-dark-slate-blue {
@@ -824,6 +873,16 @@ h4 {
 .bg-presentation {
     background-image: url("img/image-de-presentation.webp");
 }
+
+.btn-block {
+    width: auto !important;
+}
+
+/*=====================
+*
+*   MEDIA QUERIES
+*
+*======================*/
 
 @media (max-width: 1024px) {
     .bloc {
@@ -899,6 +958,18 @@ h4 {
         padding-left: 10px!important;
         padding-right: 10px!important;
     }
+    h1.hero-bloc-text {
+        font-size: 25px !important;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    p {
+        font-size: 12px;
+    }
     .b-parallax {
         background-attachment: scroll;
     }
@@ -910,6 +981,12 @@ h4 {
     .navbar.row {
         margin-left: 0;
         margin-right: 0;
+    }
+    .navbar .navbar-brand {
+        text-align: center;
+    }
+    .navbar .navbar-brand span {
+        display: block;
     }
     .site-navigation {
         position: inherit;
@@ -955,6 +1032,7 @@ h4 {
         -webkit-box-shadow: none;
         box-shadow: none;
     }
+   
     .navbar-brand img {
         max-height: 40px;
         width: auto;
