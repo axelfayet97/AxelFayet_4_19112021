@@ -5,6 +5,6 @@ Bienvenue sur le Repository du Projet 3 d'Openclassrooms Ohmyfood codé par moi-
 Vous pourrez accéder au site <strong>non-optimisé</strong> via ce lien : https://axelfayet97.github.io/AxelFayet_4_19112021/old/index.html<br />
 Et au site <strong>optimisé</strong> via ce lien : https://axelfayet97.github.io/AxelFayet_4_19112021/new/index.html
 
-Tous retour sont les bienvenus.
+Tous retours sont les bienvenus.
 
 Axel Fayet
